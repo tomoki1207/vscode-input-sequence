@@ -1,0 +1,29 @@
+{
+    "name": "vscode-input-sequence",
+    "displayName": "vscode-input-sequence",
+    "description": "sequential-number in vscode",
+    "version": "0.0.1",
+    "publisher": "tomoki1207",
+    "engines": {
+        "vscode": "^1.5.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.sayHello",
+            "title": "Hello World"
+        }]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "vscode": "^0.11.0"
+    }
+}
