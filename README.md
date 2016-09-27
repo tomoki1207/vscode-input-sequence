@@ -1,6 +1,11 @@
 # vscode-input-sequence
 
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/tomoki1207/vscode-input-sequence/master/LICENSE)
+
 [sequential-number](https://atom.io/packages/sequential-number) for VSCode.
+
+![screenshot](https://raw.githubusercontent.com/tomoki1207/vscode-input-sequence/images/screenshot.gif)
 
 ## Usage
 
