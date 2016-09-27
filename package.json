@@ -1,29 +1,44 @@
 {
-    "name": "vscode-input-sequence",
-    "displayName": "vscode-input-sequence",
-    "description": "sequential-number in vscode",
-    "version": "0.0.1",
-    "publisher": "tomoki1207",
-    "engines": {
-        "vscode": "^1.5.0"
-    },
-    "categories": [
-        "Other"
+  "name": "vscode-input-sequence",
+  "displayName": "vscode-input-sequence",
+  "description": "sequential-number in vscode",
+  "version": "0.0.1",
+  "publisher": "tomoki1207",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:insertSequentialNumbers"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "insertSequentialNumbers",
+        "title": "Insert Sequential number"
+      }
     ],
-    "activationEvents": [
-        "onCommand:extension.sayHello"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "vscode": "^0.11.0"
-    }
+    "keybindings": [
+      {
+        "command": "insertSequentialNumbers",
+        "key": "ctrl+alt+0",
+        "mac": "cmd+alt+0",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "eslint": "^3.6.0",
+    "eslint-plugin-node": "^2.1.1",
+    "typescript": "^2.0.3",
+    "vm": "^0.1.0",
+    "vscode": "^0.11.0"
+  }
 }

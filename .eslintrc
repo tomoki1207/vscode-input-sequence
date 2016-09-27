@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
+  ],
+  "plugins": [
+    "node"
+  ],
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "node/no-unpublished-require": [
+      "error",
+      {
+        "allowModules": [
+          "vscode"
+        ]
+      }
+    ],
+    "node/no-missing-require": [
+      "error",
+      {
+        "allowModules": [
+          "vscode"
+        ]
+      }
+    ],
+    "semi": "error",
+    "no-console": "warn",
+    "node/no-unsupported-features": [
+      "error",
+      {
+        "version": 5
+      }
+    ]
+  }
+}
