@@ -1,0 +1,16 @@
+environment:
+  ELECTRON_RUN_AS_NODE: 1
+  VSCODE_BUILD_VERBOSE: true
+
+install:
+  - ps: Install-Product node 6.6.0 x64
+  - npm install -g npm
+  - npm install -g gulp mocha
+
+build_script:
+  - npm install
+
+test_script:
+  - node --version
+  - npm --version
+  - npm test --silent

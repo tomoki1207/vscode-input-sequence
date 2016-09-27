@@ -4,6 +4,10 @@
   "description": "sequential-number in vscode",
   "version": "0.0.1",
   "publisher": "tomoki1207",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomoki1207/vscode-input-sequence"
+  },
   "license": "MIT",
   "engines": {
     "vscode": "^1.5.0"
@@ -32,7 +36,8 @@
     ]
   },
   "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "eslint": "^3.6.0",

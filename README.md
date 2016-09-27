@@ -1,6 +1,7 @@
 # vscode-input-sequence
 
-
+[![Build status](http://img.shields.io/travis/tomoki1207/vscode-input-sequence.svg?style=flat-square)](https://travis-ci.org/tomoki1207/vscode-input-sequence)
+[![AppVeyor](http://img.shields.io/appveyor/ci/tomoki1207/vscode-input-sequence.svg?style=flat-square)](https://ci.appveyor.com/project/tomoki1207/vscode-input-sequence)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/tomoki1207/vscode-input-sequence/master/LICENSE)
 
 [sequential-number](https://atom.io/packages/sequential-number) for VSCode.
