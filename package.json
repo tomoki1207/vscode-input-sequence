@@ -2,11 +2,14 @@
   "name": "vscode-input-sequence",
   "displayName": "vscode-input-sequence",
   "description": "sequential-number in vscode",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "tomoki1207",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomoki1207/vscode-input-sequence"
+    "url": "https://github.com/tomoki1207/vscode-input-sequence.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomoki1207/vscode-input-sequence/issues"
   },
   "license": "MIT",
   "engines": {
@@ -37,13 +40,15 @@
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "test": "node ./node_modules/vscode/bin/test",
+    "package": "vsce package"
   },
   "devDependencies": {
     "eslint": "^3.6.0",
     "eslint-plugin-node": "^2.1.1",
     "typescript": "^2.0.3",
     "vm": "^0.1.0",
+    "vsce": "^1.14.0",
     "vscode": "^0.11.0"
   }
 }
