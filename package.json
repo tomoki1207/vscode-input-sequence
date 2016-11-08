@@ -29,6 +29,15 @@
         "title": "Insert Sequential number"
       }
     ],
+    "configuration": {
+      "title": "Input-Sequence configuration",
+      "properties": {
+        "sequence.replaceSelection": {
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "insertSequentialNumbers",

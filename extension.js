@@ -55,9 +55,10 @@ function sortSelection(a, b) {
 
 function perform(initial, editor, options, undoStop) {
   var currentSelection = editor.selections.sort(sortSelection);
+  var replaceSelection = vscode.workspace.getConfiguration("sequence").replaceSelection;
   editor.edit(function (builder) {
     initial.forEach(function (selection, index) {
-      var endOfInitialSelection = selection.end.character + (currentSelection[index].start.character - selection.start.character);
+      var endOfInitialSelection = replaceSelection ? selection.start.character : selection.end.character + (currentSelection[index].start.character - selection.start.character);
       builder.replace(new Range(new Position(selection.end.line, endOfInitialSelection), currentSelection[index].end), calculate(index, options));
     });
   }, undoStop);
