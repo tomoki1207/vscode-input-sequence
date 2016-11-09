@@ -2,7 +2,7 @@
   "name": "vscode-input-sequence",
   "displayName": "vscode-input-sequence",
   "description": "sequential-number in vscode",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "tomoki1207",
   "repository": {
     "type": "git",
