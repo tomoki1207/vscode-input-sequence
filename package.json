@@ -19,14 +19,24 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:insertSequentialNumbers"
+    "onCommand:insertSequentialNumbers",
+    "onCommand:incrementSelections",
+    "onCommand:decrementSelections"
   ],
   "main": "./extension",
   "contributes": {
     "commands": [
       {
         "command": "insertSequentialNumbers",
-        "title": "Insert Sequential number"
+        "title": "input-sequence: Insert Sequential number"
+      },
+      {
+        "command": "incrementSelections",
+        "title": "input-sequence: Increment Selections"
+      },
+      {
+        "command": "decrementSelections",
+        "title": "input-sequence: Decrement Selections"
       }
     ],
     "configuration": {
@@ -43,6 +53,18 @@
         "command": "insertSequentialNumbers",
         "key": "ctrl+alt+0",
         "mac": "cmd+alt+0",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "incrementSelections",
+        "key": "ctrl+alt+i",
+        "mac": "cmd+alt+i",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "decrementSelections",
+        "key": "ctrl+alt+d",
+        "mac": "cmd+alt+d",
         "when": "editorTextFocus"
       }
     ]

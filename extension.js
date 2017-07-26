@@ -9,12 +9,13 @@ function activate(context) {
   var insertCmd = vscode.commands.registerCommand('insertSequentialNumbers', function () {
     var editor = vscode.window.activeTextEditor;
     var initialSelections = editor.selections.sort(sortSelection);
+    var replaceSelection = vscode.workspace.getConfiguration("sequence").replaceSelection;
     var inputOptions = {};
     var undoStopBefore = true;
     inputOptions.placeHolder = "<start> <operator> <step> : <digit> : <radix>";
     inputOptions.validateInput = function (param) {
       if (param === "") {
-        perform(initialSelections, editor, {}, { undoStopBefore: undoStopBefore, undoStopAfter: false });
+        perform(initialSelections, editor, {}, replaceSelection, { undoStopBefore: undoStopBefore, undoStopAfter: false });
         return;
       }
       var test = parseInput(param);
@@ -22,7 +23,7 @@ function activate(context) {
         return 'Syntax error. The rule is "<start> <operator> <step> : <digit> : <radix>".';
       }
       // realtime simulate
-      perform(initialSelections, editor, test, { undoStopBefore: undoStopBefore, undoStopAfter: false });
+      perform(initialSelections, editor, test, replaceSelection, { undoStopBefore: undoStopBefore, undoStopAfter: false });
       undoStopBefore &= false;
     };
     vscode.window.showInputBox(inputOptions)
@@ -36,11 +37,44 @@ function activate(context) {
         }
         // confirm input.
         var options = parseInput(value);
-        perform(initialSelections, editor, options, { undoStopBefore: false, undoStopAfter: true });
+        perform(initialSelections, editor, options, replaceSelection, { undoStopBefore: false, undoStopAfter: true });
       });
   });
 
+  var incrementCmd = vscode.commands.registerCommand('incrementSelections', function () {
+    var editor = vscode.window.activeTextEditor;
+    var initialSelections = editor.selections.sort(sortSelection);
+    var options = {
+      start: Number(editor.document.getText(editor.selections[0])), // Use top of selections.
+      digit: 0,
+      operator: "+",
+      step: 1,
+      radix: 10,
+      input: "1"
+    };
+    // NOTE: "undoStop" option is unknown. Temporary use "false".
+    // NOTE: This command always replace select values.
+    perform(initialSelections, editor, options, true, { undoStopBefore: false, undoStopAfter: false });
+  });
+
+  var decrementCmd = vscode.commands.registerCommand('decrementSelections', function () {
+    var editor = vscode.window.activeTextEditor;
+    var initialSelections = editor.selections.sort(sortSelection);
+    var options = {
+      start: Number(editor.document.getText(editor.selections[0])), // Use top of selections.
+      digit: 0,
+      operator: "-",
+      step: 1,
+      radix: 10,
+      input: "1"
+    };
+    // NOTE: "undoStop" option is unknown. Temporary use "false".
+    // NOTE: This command always replace select values.
+    perform(initialSelections, editor, options, true, { undoStopBefore: false, undoStopAfter: false });
+  });
+
   context.subscriptions.push(insertCmd);
+  context.subscriptions.push(incrementCmd);
 }
 exports.activate = activate;
 
@@ -53,9 +87,8 @@ function sortSelection(a, b) {
   return a.anchor.line - b.anchor.line || a.anchor.character - b.anchor.character;
 }
 
-function perform(initial, editor, options, undoStop) {
+function perform(initial, editor, options, replaceSelection, undoStop) {
   var currentSelection = editor.selections.sort(sortSelection);
-  var replaceSelection = vscode.workspace.getConfiguration("sequence").replaceSelection;
   editor.edit(function (builder) {
     initial.forEach(function (selection, index) {
       var endOfInitialSelection = replaceSelection ? selection.start.character : selection.end.character + (currentSelection[index].start.character - selection.start.character);
