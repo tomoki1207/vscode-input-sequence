@@ -75,6 +75,7 @@ function activate(context) {
 
   context.subscriptions.push(insertCmd);
   context.subscriptions.push(incrementCmd);
+  context.subscriptions.push(decrementCmd);
 }
 exports.activate = activate;
 
