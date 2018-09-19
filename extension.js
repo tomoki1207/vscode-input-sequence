@@ -11,7 +11,7 @@ function activate(context) {
     var initialSelections = editor.selections.sort(sortSelection);
     var inputOptions = {};
     var undoStopBefore = true;
-    inputOptions.placeHolder = "<start> <operator> <step> : <digit> : <radix>";
+    inputOptions.placeHolder = "<start> <operator['+'|'-'|'++'|'--']> <step> : <digit> : <radix>";
     inputOptions.validateInput = function (param) {
       if (param === "") {
         perform(initialSelections, editor, {}, { undoStopBefore: undoStopBefore, undoStopAfter: false });
@@ -19,7 +19,7 @@ function activate(context) {
       }
       var test = parseInput(param);
       if (!test) {
-        return 'Syntax error. The rule is "<start> <operator> <step> : <digit> : <radix>".';
+        return 'Syntax error. The rule is "<start> <operator[\'+\'|\'-\'|\'++\'|\'--\']> <step> : <digit> : <radix>".';
       }
       // realtime simulate
       perform(initialSelections, editor, test, { undoStopBefore: undoStopBefore, undoStopAfter: false });
