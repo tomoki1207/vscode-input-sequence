@@ -107,6 +107,9 @@ function calculate(index, options) {
     case "-":
       value = options.start - (index * options.step);
       break;
+    case "*":
+      value = options.start * Math.pow(index, options.step);
+      break;
     default:
       return "";
   }
