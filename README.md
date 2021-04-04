@@ -11,7 +11,11 @@
 ## Usage
 
 ### Default Keymap
-<kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>0</kbd> => Open the input panel !
+
+Open the input panel:
+
+<kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>0</kbd> => Windows  
+<kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>0</kbd> => Mac
 
 ### Syntax Rules
 
